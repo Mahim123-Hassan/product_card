@@ -27,11 +27,11 @@ class _ProductCardState extends State<ProductCard> {
     int? totalPrice,
     required bool isUpdate,
   }) {
-    TextEditingController productNameController=TextEditingController();
-    TextEditingController productIMGeController=TextEditingController();
-    TextEditingController productQTYController=TextEditingController();
-    TextEditingController productUnitController=TextEditingController();
-    TextEditingController productTotalPriceController=TextEditingController();
+    TextEditingController productNameController = TextEditingController();
+    TextEditingController productIMGeController = TextEditingController();
+    TextEditingController productQTYController = TextEditingController();
+    TextEditingController productUnitController = TextEditingController();
+    TextEditingController productTotalPriceController = TextEditingController();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -108,7 +108,17 @@ class _ProductCardState extends State<ProductCard> {
                     ),
                   ),
                   onPressed: () {
-                    print(productNameController.text);
+                    setState(() {
+
+                      productController.createProduct(
+                        productNameController.text,
+                        productIMGeController.text,
+                        int.parse(productQTYController.text),
+                        int.parse(productUnitController.text),
+                        int.parse(productTotalPriceController.text),
+                      );
+                    });
+                    Navigator.pop(context);
                   },
                   child: Text("Update"),
                 ),
