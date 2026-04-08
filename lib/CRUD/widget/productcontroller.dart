@@ -17,4 +17,16 @@ class Productcontroller {
     }
 
   }
+
+
+
+  Future<bool>DeleteProduct(String productId)async{
+    final response=await http.get(Uri.parse(Urls.deleteproduct(productId)));
+    if(response.statusCode==200){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }

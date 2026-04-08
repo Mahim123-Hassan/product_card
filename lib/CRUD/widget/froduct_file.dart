@@ -3,13 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class product_file extends StatelessWidget {
+  final Data product;
+  final VoidCallback onDelete;
 
-final Data product;
 
-  const product_file({
-    super.key,
-    required this.product,
-  });
+  const product_file({super.key, required this.product,required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,10 @@ final Data product;
             SizedBox(
               height: 150,
               child: Image.network(
-                product.img.toString()
+                (product.img != null &&
+                        product.img.toString().startsWith('http'))
+                    ? product.img.toString()
+                    : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT811sfHEAgG8NqFXjYctX5K0WfeIRZ8JlmN9vM0Q9kdpZD0fzt-zYsNsk&s',
               ),
             ),
             Text(
@@ -39,7 +40,7 @@ final Data product;
               mainAxisAlignment: .spaceEvenly,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: onDelete,
                   icon: Icon(Icons.edit, color: Colors.green),
                 ),
                 IconButton(

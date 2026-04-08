@@ -1,6 +1,6 @@
 
-import 'package:api_call_practitce/CRUD/widget/coments_api.dart';
-import 'package:api_call_practitce/CRUD/widget/crud.dart';
+import 'package:api_call_practitce/coments_api.dart';
+import 'package:api_call_practitce/crud.dart';
 import 'package:api_call_practitce/CRUD/widget/product_card.dart';
 import 'package:flutter/material.dart';
 
